@@ -23,6 +23,7 @@
       background-color: var(--bg);
       color: var(--text);
       font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
     }
     header {
       background: var(--gradient);
@@ -210,6 +211,57 @@
       z-index: 999;
       text-decoration: none;
     }
+
+    /* Carrossel estilos */
+    h2.carrossel-titulo {
+      text-align: center;
+      color: var(--primary);
+      margin-top: 10px;
+      font-size: 18px;
+    }
+    .carrossel-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      margin: 10px 0 40px 0;
+      padding: 0 10px;
+    }
+    .carrossel {
+      display: flex;
+      width: max-content;
+      animation: deslizar 30s linear infinite;
+    }
+    .carrossel-item {
+      flex: 0 0 auto;
+      width: 90px;
+      margin: 0 5px;
+      text-align: center;
+    }
+    .carrossel-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #00c7a5;
+      transition: transform 0.3s;
+    }
+    .carrossel-item img:hover {
+      transform: scale(1.1);
+    }
+    .carrossel-item p {
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--primary);
+      word-break: break-word;
+    }
+    @keyframes deslizar {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
   </style>
 </head>
 <body>
@@ -227,6 +279,11 @@
       <a href="#teste">Teste Grátis</a>
     </nav>
   </header>
+
+  <h2 class="carrossel-titulo">📲 Escolha seu App IPTV</h2>
+  <div class="carrossel-container">
+    <div class="carrossel" id="carrossel-apks"></div>
+  </div>
 
   <div class="container">
 
@@ -250,7 +307,6 @@
       <div class="cards">
         <div class="card">
           <h3>100 Créditos</h3>
-          
           <h4>R$ 30,00</h4>
           <button
             onclick="window.open('https://wa.me/558296481143?text=Quero%20comprar%20100%20créditos%20para%20IPTV')"
@@ -260,7 +316,6 @@
         </div>
         <div class="card">
           <h3>200 Créditos</h3>
-        
           <h4>R$ 60,00</h4>
           <button
             onclick="window.open('https://wa.me/558296481143?text=Quero%20comprar%20200%20créditos%20para%20IPTV')"
@@ -270,7 +325,6 @@
         </div>
         <div class="card">
           <h3>300 Créditos</h3>
-        
           <h4>R$ 90,00</h4>
           <button
             onclick="window.open('https://wa.me/558296481143?text=Quero%20comprar%20300%20créditos%20para%20IPTV')"
@@ -280,7 +334,6 @@
         </div>
         <div class="card">
           <h3>400 Créditos</h3>
-        
           <h4>R$ 120,00</h4>
           <button
             onclick="window.open('https://wa.me/558296481143?text=Quero%20comprar%20400%20créditos%20para%20IPTV')"
@@ -300,35 +353,36 @@
         </div>
       </div>
     </section>
-<section id="planos-iptv">
-  <h2>Planos de IPTV</h2>
-  <div class="cards">
-    <div class="card">
-      <img src="https://i.postimg.cc/KYNBHnZ6/Imagem-do-Whats-App-de-2025-06-19-s-17-57-25-8dd11673.jpg" alt="Plano Ultra" style="width:100%; border-radius: 15px; margin-bottom: 15px;">
-      <h3>Plano Ultra</h3>
-      <p>📺 Mais de 12.000 canais e conteúdo on-demand</p>
-      <p>🔒 Estabilidade e qualidade HD/Full HD</p>
-      <h4>R$ 35,00</h4>
-      <button onclick="window.open('https://wa.me/558296481143?text=Quero%20assinar%20o%20Plano%20Ultra%20de%20IPTV')">Assinar</button>
-    </div>
-    <div class="card">
-      <img src="https://i.postimg.cc/QCjgM0fx/Imagem-do-Whats-App-de-2025-06-19-s-17-57-36-fbb980d4.jpg" alt="Plano Premium" style="width:100%; border-radius: 15px; margin-bottom: 15px;">
-      <h3>Plano Premium</h3>
-      <p>📺 Mais de 10.000 canais + filmes e séries</p>
-      <p>💡 Qualidade HD</p>
-      <h4>R$ 30,00</h4>
-      <button onclick="window.open('https://wa.me/558296481143?text=Quero%20assinar%20o%20Plano%20Premium%20de%20IPTV')">Assinar</button>
-    </div>
-    <div class="card">
-      <img src="https://i.postimg.cc/pL4CRQ83/Imagem-do-Whats-App-de-2025-06-19-s-17-57-48-5283ade3.jpg" alt="Plano Básico" style="width:100%; border-radius: 15px; margin-bottom: 15px;">
-      <h3>Plano Básico</h3>
-      <p>📺 Mais de 5.000 canais básicos</p>
-      <p>💡 Qualidade SD/HD</p>
-      <h4>R$ 25,00</h4>
-      <button onclick="window.open('https://wa.me/558296481143?text=Quero%20assinar%20o%20Plano%20Básico%20de%20IPTV')">Assinar</button>
-    </div>
-  </div>
-</section>
+
+    <section id="planos-iptv">
+      <h2>Planos de IPTV</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="https://i.postimg.cc/KYNBHnZ6/Imagem-do-Whats-App-de-2025-06-19-s-17-57-25-8dd11673.jpg" alt="Plano Ultra" style="width:100%; border-radius: 15px; margin-bottom: 15px;">
+          <h3>Plano Ultra</h3>
+          <p>📺 Mais de 12.000 canais e conteúdo on-demand</p>
+          <p>🔒 Estabilidade e qualidade HD/Full HD</p>
+          <h4>R$ 35,00</h4>
+          <button onclick="window.open('https://wa.me/558296481143?text=Quero%20assinar%20o%20Plano%20Ultra%20de%20IPTV')">Assinar</button>
+        </div>
+        <div class="card">
+          <img src="https://i.postimg.cc/QCjgM0fx/Imagem-do-Whats-App-de-2025-06-19-s-17-57-36-fbb980d4.jpg" alt="Plano Premium" style="width:100%; border-radius: 15px; margin-bottom: 15px;">
+          <h3>Plano Premium</h3>
+          <p>📺 Mais de 10.000 canais + filmes e séries</p>
+          <p>💡 Qualidade HD</p>
+          <h4>R$ 30,00</h4>
+          <button onclick="window.open('https://wa.me/558296481143?text=Quero%20assinar%20o%20Plano%20Premium%20de%20IPTV')">Assinar</button>
+        </div>
+        <div class="card">
+          <img src="https://i.postimg.cc/pL4CRQ83/Imagem-do-Whats-App-de-2025-06-19-s-17-57-48-5283ade3.jpg" alt="Plano Básico" style="width:100%; border-radius: 15px; margin-bottom: 15px;">
+          <h3>Plano Básico</h3>
+          <p>📺 Mais de 5.000 canais básicos</p>
+          <p>💡 Qualidade SD/HD</p>
+          <h4>R$ 25,00</h4>
+          <button onclick="window.open('https://wa.me/558296481143?text=Quero%20assinar%20o%20Plano%20Básico%20de%20IPTV')">Assinar</button>
+        </div>
+      </div>
+    </section>
 
     <section id="painel-iptv">
       <h2>Painel IPTV</h2>
@@ -367,28 +421,93 @@
     class="whatsapp"
     href="https://wa.me/558296481143?text=Olá!%20Quero%20saber%20mais%20sobre%20Painel%20e%20Créditos%20de%20IPTV"
     target="_blank"
-    >💬</a
-  >
+  >💬</a>
 
   <footer>
     &copy; 2025 JM Connect Revendas - Todos os direitos reservados.
   </footer>
 
   <script>
-    document
-      .getElementById('formTeste')
-      .addEventListener('submit', function (e) {
-        e.preventDefault();
-        let nome = document.getElementById('nome').value;
-        let msg = `Olá! Me chamo ${nome} e gostaria de solicitar um teste grátis de IPTV.`;
-        window.open(
-          `https://wa.me/558296481143?text=${encodeURIComponent(msg)}`,
-          '_blank'
-        );
-      });
+    const dispositivosPorAPK = {
+      "IPTV Player io": [
+        { nome: "IPTV Player io", icone: "https://i.postimg.cc/MGmNS6gJ/Captura-de-tela-2025-06-17-194259.png", link: "https://iptvplayer.io" }
+      ],
+      "IPTV Stream": [
+        { nome: "IPTV Stream", icone: "https://i.postimg.cc/gjLPm9vy/Captura-de-tela-2025-06-17-194323.png", link: "https://tiviplayer.io/" }
+      ],
+      "IPTV Player": [
+        { nome: "IPTV Player", icone: "https://i.postimg.cc/446Dv1Wx/Captura-de-tela-2025-06-17-194342.png", link: "https://i-player.live/" }
+      ],
+      "IPTV Plus": [
+        { nome: "IPTV Plus", icone: "https://i.postimg.cc/4y2bvMM0/Captura-de-tela-2025-06-17-194358.png", link: "https://iptvpluseplayer.live/" }
+      ],
+      "IPTV 4K": [
+        { nome: "IPTV 4K", icone: "https://i.postimg.cc/13q2tcVS/Captura-de-tela-2025-06-17-194411.png", link: "https://vissiontv.live/" }
+      ],
+      "Pro Player": [
+        { nome: "Pro Player", icone: "https://i.postimg.cc/85Gn5jqz/Captura-de-tela-2025-06-17-194430.png", link: "https://iptvproplayer.live/" }
+      ],
+      "IPTV Play": [
+        { nome: "IPTV Play", icone: "https://i.postimg.cc/GmrzwHsL/Captura-de-tela-2025-06-17-194445.png", link: "https://iptvproplayer.live/pt-br" }
+      ],
+      "IPTV OTT Player": [
+        { nome: "IPTV OTT Player", icone: "https://i.postimg.cc/Kv5BTQRb/Captura-de-tela-2025-06-17-194502.png", link: "https://simpletv.live/pt-br" }
+      ],
+      "IPTV Star": [
+        { nome: "IPTV Star", icone: "https://i.postimg.cc/xdG2jk66/Captura-de-tela-2025-06-17-194526.png", link: "https://iptv-star.live/pt-br" }
+      ],
+      "XCIPTV PLAYER": [
+        { nome: "XCIPTV BAIXAR", icone: "https://i.postimg.cc/x1HVBPth/Captura-de-tela-2025-06-19-150220.png", link: "https://xciptv.br.uptodown.com/android" }
+      ],
+      "XCLOUD IPTV": [
+        { nome: "XCLOUD WhatsApp", icone: "https://i.postimg.cc/C5SHy2zv/Imagem-do-Whats-App-de-2025-06-19-s-11-56-55-feb20e29.jpg", link: "https://wa.me/5582996481143?text=Olá!%20Gostaria%20de%20um%20teste%20para%20o%20app%20XCLOUD%20IPTV." }
+      ]
+    };
+
+    const carrossel = document.getElementById('carrossel-apks');
+
+    function criarItens() {
+      for (const app in dispositivosPorAPK) {
+        const primeiroLink = dispositivosPorAPK[app][0];
+        const item = document.createElement('div');
+        item.classList.add('carrossel-item');
+
+        item.innerHTML = `
+          <a href="${primeiroLink.link}" target="_blank" rel="noopener noreferrer">
+            <img src="${primeiroLink.icone}" alt="${primeiroLink.nome}">
+          </a>
+          <p>${app}</p>
+        `;
+
+        carrossel.appendChild(item);
+      }
+    }
+
+    criarItens();
+    criarItens(); // duplicando para loop infinito
+
+    // Formulário Teste grátis WhatsApp
+    document.getElementById('formTeste').addEventListener('submit', function (e) {
+      e.preventDefault();
+      let nome = document.getElementById('nome').value.trim();
+      if (!nome) return alert("Por favor, digite seu nome completo.");
+      let msg = `Olá! Me chamo ${nome} e gostaria de solicitar um teste grátis de IPTV.`;
+      window.open(`https://wa.me/558296481143?text=${encodeURIComponent(msg)}`, '_blank');
+    });
+
+    // Menu responsivo toggle
     function toggleMenu() {
       document.getElementById('menu').classList.toggle('show');
     }
+
+    // Fecha menu ao clicar fora no mobile (opcional)
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('menu');
+      const menuIcon = document.querySelector('.menu-icon');
+      if (!menu.contains(e.target) && !menuIcon.contains(e.target)) {
+        menu.classList.remove('show');
+      }
+    });
   </script>
 </body>
 </html>
